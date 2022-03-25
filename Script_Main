@@ -1,0 +1,112 @@
+$Administrativ = New-Object System.Management.Automation.Host.ChoiceDescription '&Administrativ', 'Installations type: Administrativ'
+$technician = New-Object System.Management.Automation.Host.ChoiceDescription '&technician', 'Installations type: technicia'
+$Custom = New-Object System.Management.Automation.Host.ChoiceDescription '&Custom', 'Installations Type: Custom'
+$cancel = New-Object System.Management.Automation.Host.ChoiceDescription '&Cancel', 'Installations Type: Cancel'
+$SOC = New-Object System.Management.Automation.Host.ChoiceDescription '&SOC', 'Installations type: SOC'
+$SOC_Dispatch = New-Object System.Management.Automation.Host.ChoiceDescription '&SOC_Dispatch', 'Installations type: SOC_Dispatch'
+$SOC_Alarm = New-Object System.Management.Automation.Host.ChoiceDescription '&SOC_Alarm', 'Installations type: SOC_Alarm'
+$SOC_Surveillance = New-Object System.Management.Automation.Host.ChoiceDescription '&SOC_Surveillance', 'Installations type: SOC_Surveillance'
+
+$options = [System.Management.Automation.Host.ChoiceDescription[]]($Administrativ, $Montor, $SOC, $Custom, $Cancel)
+
+$title = 'Installationtype'
+$message = 'Which installation would you like to run?'
+$result = $host.ui.PromptForChoice($title, $message, $options, 0) 
+
+
+
+<#installationerne start#>
+
+<#Administration start#>
+If ($result -eq 0) {
+    write-host "You selected Admin"
+    Write-host Installing 7-Zip
+    Write-host installing Cisco Anyconnect
+    Write-Host installing Network Drive
+    Write-Host installing Adobe Reader
+    Write-Host installing  Guardservice
+    Write-Host Installing  Pocketmobile
+    Write-Host installing Google Drive
+    Write-Host Installing Teamviewer
+    Write-host Setting Teamviewer settings
+    Write-host Installing phoneservice
+    Write-host Installing Star
+    Write-Host Installation Complete
+    break
+    }
+ 
+<#Administration slut#>
+
+<#Montør start#>
+If ($result -eq 2) {
+    write-host "You selected technician"
+    Write-host Installing 7-Zip
+    Write-host installing Cisco Anyconnect
+    Write-Host installing Network Drive
+    Write-Host installing Adobe Reader
+    Write-Host installing Google Drive
+    Write-Host Installing Teamviewer
+    Write-host Setting Teamviewer settings
+    Write-Host Installation Complete
+    break
+    }
+<#Montør slut#>
+
+<#SOC start#>
+If ($result -eq 1) {
+    write-host "You selected SOC"
+    Write-host Installing 7-Zip
+    Write-host installing Cisco Anyconnect
+    Write-Host installing Network Drive
+    Write-Host installing Adobe Reader
+    Write-Host installing Google Drive
+    Write-Host Installing Teamviewer
+    Write-host Setting Teamviewer settings
+    Write-Host Installation Complete
+    }
+$options = [System.Management.Automation.Host.ChoiceDescription[]]($SOC_Dispatch, $SOC_Alarm, $SOC_Surveillance, $Cancel)
+
+$title = 'Installationstype'
+$message = 'Which installation would you like to run?'
+$result = $host.ui.PromptForChoice($title, $message, $options, 0) 
+
+<#SOC slut#>
+
+<#SOC_Dispatch start#>
+If ($result -eq 1) {
+    write-host "You selected SOC_Dispatch"
+    Write-Host Installation Complete
+    break
+    }
+
+<#SOC_Dispatch slut#>
+
+<#SOC_Alarm start#>
+If ($result -eq 1) {
+    write-host "You selected SOC_Alarm"
+    Write-host Installing Citrix
+    Write-Host Installation Complete
+    break
+    }
+
+<#SOC_Alarm slut#>
+
+<#SOC_Surveillance start#>
+If ($result -eq 1) {
+    write-host "You selected SOC_Surveillance"
+    Write-Host Installation Complete
+    break
+    }
+
+<#SOC_Surveillance slut#>
+
+<#Custom start#>
+If ($result -eq 1) {
+    write-host "You selected Custom"
+    break
+    }
+<#Custom slut#>
+
+<#installationerne slut#>
+write-host 'Installation Complete...'
+Read-Host
